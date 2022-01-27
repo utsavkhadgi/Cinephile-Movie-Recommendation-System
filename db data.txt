@@ -1,0 +1,69 @@
+Test
+Test Description...
+https://www.youtube.com/watch?v=lIIvFgwREsI
+8
+thriller
+default.jpg
+
+Aanandam
+Seven friends visit Goa and Hampi while on their college trip. Their experiences during their journey help them understand the intricacies of love and friendship.
+https://www.youtube.com/watch?v=lIIvFgwREsI
+10
+thriller
+mages/aanandam.jpg
+
+
+Vikramadithyan
+Adithyan, the son of a dishonoured thief who committed suicide, must fight all the odds and compete with Vikraman for the post of a police officer.
+https://www.youtube.com/watch?v=lIIvFgwREsI
+6
+adventure
+images/vikramaditya.jpg
+
+
+
+Motorcycle Diaries
+Motorcycle Diaries is an unreleased Indian Malayalam-language film directed by Rajesh Pillai, starring Kunchako Boban and Nivin Pauly in lead roles. The film is based on the mental relationship between one motorcycle and his previous owner.
+https://www.youtube.com/watch?v=lIIvFgwREsI
+5
+action
+images/motorcycle_diaries.jpg
+
+
+
+Premam
+While George's first love turns out to be a disappointment, Malar, a college lecturer, rekindles his love interest. His romantic journey takes him through several stages, helping him find his purpose
+https://www.youtube.com/watch?v=lIIvFgwREsI
+7
+action
+images/premam.jpg
+
+
+
+Majili
+After being abandoned by his lover, Anshu, Poorna takes to alcohol and is forced to marry his neighbour, Sravani. However, he soon discovers her unrequited love for him and falls for her.
+https://www.youtube.com/watch?v=lIIvFgwREsI
+9
+drama
+images/manjili1.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

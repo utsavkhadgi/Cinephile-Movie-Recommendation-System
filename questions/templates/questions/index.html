@@ -1,0 +1,22 @@
+{% extends 'movies/base.html' %}
+{% load static%}
+
+
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'questions/css/questions.css'%}">
+<div id="q1">
+    <h2>Take a survey to get the recommendation</h2><br>
+<form action="#">
+   <label for="q1">1. How are you feeling?</label><br><br>
+   <input type="radio" name="feeling" id="happy" required> Happy <br>
+   <input type="radio" name="feeling" id="sad"> Sad        <br>
+   <input type="radio" name="feeling" id="neutral"> Neutral <br><br>
+    {% for movie in movies %}
+		<h5 class="card-title">{{movie.title}}</h5>
+    {% endfor %}
+
+   <button type="submit" class="btn btn-primary" type="button">Next</button>    
+     
+</form>
+</div>
+{% endblock %}
