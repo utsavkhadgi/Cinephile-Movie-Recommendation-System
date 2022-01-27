@@ -1,0 +1,185 @@
+{% extends 'movies/base.html' %}
+{% load static%}
+
+
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'searchData/css/search.css'%}">
+
+<div class="container">
+    <div class="row top-desc">
+            <div class="col-6">
+                <h1>Panchayat</h1>
+                    <p>TV-Series  |  2020  |  35m</p>           
+            </div>
+            <div class="col-3">
+                <h4>IMDb Rating</h4>
+                <div class="social-icon"   >
+                <i class="fas fa-star"></i>
+               <span>8.8/10</span>
+                 </div>
+                
+            </div>
+            <div class="col-3">
+                POPULARITY
+            </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+        <div class="col-4" id="search-img">
+            <img src="{% static 'searchData/img/panchayat.jpg'%}"  alt="">
+        </div>
+        <div class="col-8" id="search-video">
+            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/mojZJ7oeD_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      
+
+    <div class="row search-detail"> 
+        <div class="col-8">
+            <h6 class="genre-btn">Comedy</h6>
+
+            <p>A comedy-drama, which captures the journey of an engineering graduate Abhishek, who for lack of a better job option joins as secretary of a Panchayat office in a remote village of Uttar Pradesh.</p>
+            <hr>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+
+    <div class="row stars">
+         
+         <ul>
+            <a href="#">Stars</a>
+            <a href="#">Jitendra Kumar</a>
+            <a href="#">Raghuvir Yadav</a>
+            <a href="#">Chandan Roy</a>
+         </ul>
+    </div>
+    <hr>
+
+    <div class="row top-cast">
+        <h2>| Top Cast</h2>
+        <div class="row">
+            <div class="col-1">
+                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+            </div>
+            <div class="col-5">
+                <a href="#">Jitendra Kumar</a>
+                    <p>as Abhishek Tripathi (Gram Sachiv)</p>
+            </div>
+            <div class="col-1">
+                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+            </div>
+            <div class="col-5">
+                <a href="#">Jitendra Kumar</a>
+                    <p>as Abhishek Tripathi (Gram Sachiv)</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1">
+                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+            </div>
+            <div class="col-5">
+                <a href="#">Jitendra Kumar</a>
+                    <p>as Abhishek Tripathi (Gram Sachiv)</p>
+            </div>
+            <div class="col-1">
+                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+            </div>
+            <div class="col-5">
+                <a href="#">Jitendra Kumar</a>
+                    <p>as Abhishek Tripathi (Gram Sachiv)</p>
+            </div>
+          </div>
+    </div>
+
+    <div class="row storyline">
+        <h2>| Storyline</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis et, reprehenderit voluptatibus nobis dolores ipsa suscipit rerum quae odit, culpa, similique numquam a distinctio doloremque? Repellendus excepturi in dignissimos sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel necessitatibus a sequi quos, cumque reiciendis magni obcaecati amet fugiat tempore. Labore tempora neque illum molestiae perferendis, soluta et nostrum id!</p>
+    </div>
+
+
+    <div class="row">
+        <h2>| Details</h2>
+        <hr>
+            <div class="col-6">
+                <p class="detail-title"><span>Release date </span> 
+            </div>
+        
+            <div class="col-6">
+                March 5,2020</p>
+            </div>
+        <hr>
+
+        <div class="col-6">
+            <p class="detail-title"><span>Language </span> 
+        </div>
+    
+        <div class="col-6">
+           Hindi</p>
+        </div>
+        <hr>
+
+        <div class="col-6">
+            <p class="detail-title"><span>Country of origin </span> 
+        </div>
+    
+        <div class="col-6">
+           India</p>
+        </div>
+        <hr>
+
+        <div class="col-6">
+            <p class="detail-title"><span>Director </span> 
+        </div>
+    
+        <div class="col-6">
+              Deepak Kumar Mishra</p>
+        </div>
+        <hr>
+
+        <div class="col-6">
+            <p class="detail-title"><span>Writer </span> 
+        </div>
+    
+        <div class="col-6">
+                Chandan Kumar</p>
+        </div>
+        <hr>
+
+    </div>
+
+  </div>
+  <div class="popularcontainer" id="topratedseries">
+   
+        <h2>| More like this</h2>
+        <div class="movitem slider">
+            {% for movie  in movies  %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{movie.poster}}" class="card-img-top" alt="test">
+                <div class="card-body">
+                  <h5 class="card-title">{{movie.title}}</h5>
+                  <h6 class="genre-btn">{{movie.genre}}</h6>
+                  <h6>IMDB:{{movie.rating}}</h6>
+                
+                  <!-- <h6>Cast:{{movie.cast}}</h6> -->
+
+                  <p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">...See More</a></p>
+                <div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div>
+                </div>
+              </div>        
+              {% endfor %}		      
+        </div>
+
+  
+
+ </div>
+  
+
+
+
+{% endblock %}

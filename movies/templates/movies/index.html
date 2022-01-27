@@ -1,0 +1,85 @@
+{% extends 'movies/base.html '%}
+{% load static%}
+
+{% block content %}
+
+
+	<!------------------------------------------------Carousel page-------------------------------------------->
+		
+	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			<img src="{% static 'movies/img/homepage images/lt.jpg'%}" class="d-block w-100" alt="...">
+		  </div>
+		  <div class="carousel-item">
+			<img src="{% static 'movies/img/homepage images/2.jpg'%}" class="d-block w-100" alt="...">
+		  </div>
+		  <div class="carousel-item">
+			<img src="{% static 'movies/img/homepage images/jaibhim.jpg'%}" class="d-block w-100" alt="...">
+		  </div>
+		  <div class="carousel-item">
+			<img src="{% static 'movies/img/homepage images/manjili1.jpg'%}" class="d-block w-100" alt="...">
+		  </div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="visually-hidden">Next</span>
+		</button>
+	  </div>
+
+
+	<!------------------------------------------------Popular Movies-------------------------------------------->
+	
+	<div class="popularcontainer" id="popularmovies">
+			<h1>Popular Movies</h1>
+		
+						<div class="movitem slider">
+							{% for movie in movies %}
+								<div class="card" style="width: 18rem;">
+									<img src="{{movie.poster}}" class="card-img-top" alt="...">
+									<div class="card-body">
+									<h5 class="card-title">{{movie.title}}</h5>
+									<h6 class="genre-btn">{{movie.genre}}</h6>
+									<h6>IMDB:{{movie.rating}}</h6>
+									<p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">...See More</a></p>
+
+									<div class="button-wrapper">  <a href="{{movie.trailer}}" class="btn btn-primary" target="_blank">Watch Trailer</a></div>
+									</div>
+								</div>
+							  {% endfor %}
+						</div>					  
+
+	</div>
+
+			<hr style="margin:0;">
+				 
+			<!------------------------------------------------Top Rated Series-------------------------------------------->
+	
+			<div class="popularcontainer" id="topratedseries">
+				<h1>Top Rated Series</h1>
+
+				
+					<div class="movitem slider">
+						{% for movie in movies %}
+						<div class="card" style="width: 18rem;">
+							<img src="{{movie.poster}}" class="card-img-top" alt="...">
+							<div class="card-body">
+							  <h5 class="card-title">{{movie.title}}</h5>
+							  <h6 class="genre-btn">{{movie.genre}}</h6>
+							  <h6>IMDB:{{movie.rating}}</h6>
+							  <p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:recommendation' movie.title %}" style="text-decoration: none;">...See More</a></p>
+							<div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div>
+							</div>
+						  </div>
+						  {% endfor %}						  
+					</div>
+		</div>
+
+
+{% endblock%}
+
+

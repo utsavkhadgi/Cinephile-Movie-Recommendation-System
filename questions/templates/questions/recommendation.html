@@ -1,0 +1,59 @@
+{% extends 'movies/base.html' %}
+
+
+{% block content%}
+
+ <!------------------------------------------------Recommended Movie Result------------------------------------------->  
+        <div id="recommendedmovie">
+                
+            <div class="container">
+                
+                <div class="row">
+                        <h3>Recommended Movie</h3>
+                </div>
+
+
+                <div class="row">
+            
+                        <div class="col-md-3 img">
+                            <img src="homepage images/littlethings.jpg" alt="" >
+                            
+                        </div>
+
+                        <div class="col-md-9">
+                            <a href="">Little Things</a>
+                            <p>All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous 
+                                Parks for their livelihood until they get entangled in an unexpected incident.</p>
+
+                        </div>
+                </div>
+
+
+                <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-lg">Trailer</button>
+                        </div>
+
+                        <div class="col-md-9 d-grid gap-2" >
+                            <button type="button" class="btn btn-primary btn-lg">Watch movie</button>
+                        </div>
+
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="questions pages/questions.html">
+                            <button type="submit" class="btn btn-primary btn-lg">Recommend another movie</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+ {% endblock %}
+
+
+       
