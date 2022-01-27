@@ -9,6 +9,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Movie(models.Model):
     poster = models.CharField(max_length=500)
     title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length = 250, null = True, blank = True)
     releasedDate = models.IntegerField(
                 default=2000,
                 validators=[MaxValueValidator(2021), MinValueValidator(1950)]
