@@ -20,7 +20,7 @@ def details(request, id):
     return render(request, 'movies/details.html',context)
 
 #Recommendated Movies    
-movies_dict = pickle.load(open('movies_dictf.pkl','rb'))
+movies_dict = pickle.load(open('movie_list.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl','rb'))
 
@@ -29,16 +29,16 @@ def recommendation(request, title):
     #print("Movies : ",movie)
     context = {'movie':movie} 
 
-    index=movies[movies['Series_Title']== title].index[0]
+    index=movies[movies['title']== title].index[0]
     # print("Index",index)
     similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
-    print(similarity_score)
+    # print(similarity_score)
     
     res = []
-    for i in similarity_score[1:6]:
-        res.append(movies.iloc[i[0]].Series_Title)
+    for i in similarity_score[1:5]:
+        res.append(movies.iloc[i[0]].title)
 
-    print([i.Series_Title for i in res])
+    # print([i.title for i in res])
     data = {
         'res':res,
         'movie':movie,
