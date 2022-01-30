@@ -35,7 +35,7 @@ def recommendation(request, title):
     # print(similarity_score)
     
     res = []
-    for i in similarity_score[1:5]:
+    for i in similarity_score[1:6]:
         res.append(movies.iloc[i[0]].title)
 
     # print([i.title for i in res])
