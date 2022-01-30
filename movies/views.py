@@ -26,19 +26,17 @@ similarity = pickle.load(open('similarity.pkl','rb'))
 
 def recommendation(request, title):
     movie = Movie.objects.get(title=title)
-    #print("Movies : ",movie)
     context = {'movie':movie} 
 
     index=movies[movies['title']== title].index[0]
-    # print("Index",index)
     similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
-    # print(similarity_score)
     
     res = []
     for i in similarity_score[1:6]:
         res.append(movies.iloc[i[0]].title)
 
-    # print([i.title for i in res])
+    # print([i.titleitle for i in res])
+
     data = {
         'res':res,
         'movie':movie,
