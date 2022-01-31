@@ -1,5 +1,8 @@
 {{movie.title}}
 
-{% for i in res %}
-<h3 class="card-title">{{i}}</h3>
+{% for i,j in result %}
+   
+    <h3 class="card-title">{{i}}</h3>
+    <img src="{{j}}" alt="" height="300" width="200">
+    
 {% endfor %}

@@ -7,13 +7,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Movie(models.Model):
-    poster = models.CharField(max_length=500)
     title = models.CharField(max_length=200)
-    releasedDate = models.IntegerField(
-                default=2000,
-                validators=[MaxValueValidator(2021), MinValueValidator(1950)]
-    )
-    certificate = models.CharField(max_length=30,null=True)
+    releasedDate = models.CharField(max_length=200)
     duration = models.CharField(max_length=200)
     genre = models.CharField(max_length=100,null=True)
     rating = models.FloatField(
@@ -21,9 +16,10 @@ class Movie(models.Model):
                 validators=[MaxValueValidator(10), MinValueValidator(1)]
     )
     description = models.TextField()
+    org_language = models.CharField(max_length=200,null=True)
     director = models.CharField(max_length=50,null=True)
     cast = models.CharField(max_length=100,null=True)
-    tags = models.CharField(max_length=500,null=True)
+    tags = models.CharField(max_length=1000,null=True)
     trailer = models.URLField(null=True)
 
     
