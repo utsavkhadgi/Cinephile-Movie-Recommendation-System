@@ -12,7 +12,19 @@ from .models import Movie
 
 def index(request):
     movies = Movie.objects.all()
-    context = {'movies':movies}
+    
+    poster = []
+    for i in movies:
+        poster.append(fetch_poster(i.id))
+
+    result = list(zip(movies,poster))
+    context = {'result':result}
+    # context = {
+    #     'movies':movies,
+    #     # 'poster':poster,
+    #     'result':result,
+    #     # 'results':results
+    #     }
     return render(request,'movies/index.html',context)
 
 
@@ -67,23 +79,8 @@ def recommendation(request, title):
 
 
 
-# def recommendation(request,title):
-#   movie = Movie.objects.get(title=title)
-#   context = {'movie':movie}
 
-# #database 
-#   index=movies[movies['Series_Title']==movie].index[0]
-#   similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
-#   recommended_movies = []
-#   for i in similarity_score[1:6]:
-#       recommended_movies.append(movies.iloc[i[0]].Series_Title)
-  
-#   print(i.Series_Title for i in recommended_movies)
-#   data = {
-#       'res':recommended_movies,
-#       'movie':movie,
-#   }
-#   return render(request, 'movies/recommendation.html',data)
+
 
 
 
