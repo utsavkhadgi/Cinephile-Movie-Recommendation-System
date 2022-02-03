@@ -19,12 +19,6 @@ def index(request):
 
     result = list(zip(movies,poster))
     context = {'result':result}
-    # context = {
-    #     'movies':movies,
-    #     # 'poster':poster,
-    #     'result':result,
-    #     # 'results':results
-    #     }
     return render(request,'movies/index.html',context)
 
 
@@ -62,11 +56,9 @@ def recommendation(request, title):
         recommended_movie_posters.append(fetch_poster(movie_id))
         res.append(movies.iloc[i[0]].title)
         # ress.append(movies.iloc[i[0]].movie_id)
-
-    
+  
     result = zip(res,recommended_movie_posters)
 
-    # print([i.titleitle for i in res])
 
     data = {
         # 'res':res,
