@@ -88,9 +88,77 @@ nav{
 
 /* <!------------------------------------------------Popular Movies--------------------------------------------> */
 
-/* .card img{
-    height:250px;
-} */
+.popularcontainer{
+    width: 100%;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top: 20px;
+    padding-bottom:50px;
+    background-color:#b3bcc97d;
+    
+}
+
+.popularcontainer h1{
+    font-weight: bolder;
+    text-align: center;
+    padding: 20px;
+    color:darkslategrey;
+    font-family: 'Road Rage', cursive;
+    
+}
+
+.popularcontainer h6{
+    font-weight:bold;
+    font-size: 15px;
+    padding-top: 10px;
+    /* margin-left: -170px; */
+}
+
+.movitem{
+    display:flex;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 70%;
+}
+.card{
+    margin-left:10px;
+    margin-right:10px;
+    padding-bottom:20px;
+    /* text-align: center; */
+    height:380px;;
+
+    
+}
+
+
+.card h5{
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom:10px;
+}
+
+.card img{
+    height:300px;
+}
+
+.card .genre-btn{
+    display: inline-block;
+    border: 1px solid black;
+    border-radius:0px;
+    padding: 2px;
+    text-align: center;
+    color:black;
+    margin: 0px;
+}
+
+.btn-primary{
+   background-color: transparent;
+   color: black;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    
+}
 /* <!------------------------------------------------Recommended Movie-------------------------------------------->  */
 
 #recommendedmovie{
