@@ -5,17 +5,18 @@
 {% block content%}
 <link rel="stylesheet" type="text/css" href="{% static 'searchData/css/search.css'%}">
 
+
 <div class="container">
     <div class="row top-desc">
             <div class="col-6">
-                <h1>{{movietitle.title}}</h1>
-                    <p>TV-Series  |  {{movietitle.releasedDate}}  |  {{movietitle.duration}}m</p>           
+                <h1>{{searchedmovie.title}}</h1>
+                    <p>TV-Series  |  {{searchedmovie.releasedDate}}  |  {{searchedmovie.duration}}m</p>           
             </div>
             <div class="col-3">
                 <h4>IMDb Rating</h4>
                 <div class="social-icon"   >
                 <i class="fas fa-star"></i>
-               <span>{{movietitle.rating}}</span>
+               <span>{{searchedmovie.rating}}</span>
                  </div>
                 
             </div>
@@ -42,11 +43,11 @@
         <div class="col-8">
             <h6 class="genre-btn">Comedy</h6>
             
-            {% for i  in movietitle.genre  %}   
+            {% for i  in searchedmovie.genre  %}   
                 {{i}}  
             {% endfor %}	
 
-            <p>{{movietitle.description}}</p>
+            <p>{{searchedmovie.description}}</p>
             <hr>
         </div>
         <div class="col-4">
@@ -104,7 +105,7 @@
 
     <div class="row storyline">
         <h2>| Storyline</h2>
-        <p>{{movietitle.description}}</p>
+        <p>{{searchedmovie.description}}</p>
     </div>
 
 
@@ -116,7 +117,7 @@
             </div>
         
             <div class="col-6">
-                {{movietitle.releasedDate}}</p>
+                {{searchedmovie.releasedDate}}</p>
             </div>
         <hr>
 
@@ -125,7 +126,7 @@
         </div>
     
         <div class="col-6">
-            {{movietitle.org_language}}</p>
+            {{searchedmovie.org_language}}</p>
         </div>
         <hr>
 
@@ -143,7 +144,7 @@
         </div>
     
         <div class="col-6">
-              Deepak Kumar Mishra</p>
+            {{searchedmovie.director}}</p>
         </div>
         <hr>
 
@@ -161,29 +162,35 @@
   </div>
   <div class="popularcontainer" id="topratedseries">
    
-        <h2>| More like this</h2>
+        <h2>| Recommended</h2>
         <div class="movitem slider">
-            {% for movie,poster in result %}
+            {% for i,j in data %}
             <div class="card" style="width: 18rem;">
-                <img src="{{poster}}" class="card-img-top" alt="...">
+                <img src="{{j}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">{{movie.title}}</h5>
+                <h5 class="card-title">{{i}}</h5>
                   <!-- <h6 style="text-align: center;">{{movie.title}}</h6> -->
                   <!-- <i class="fas fa-star" style="color: black;"></i>
                   <span>{{movie.rating}}</span> -->
                   <!-- <h6>IMDB:{{movie.rating}}</h6> -->
-                  <!-- <p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:recommendation' movie.title %}" style="text-decoration: none;">...See More</a></p>
-                <div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
+                 
+                  <!-- <div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
                 </div>
               </div>
               {% endfor %}	      
         </div>
 
-  
-
  </div>
 
 </div>
+
+{% for i,j in data %}
+   
+    <h3 class="card-title">{{i}}</h3>
+    <img src="{{j}}" alt="" height="300" width="200">
+    
+{% endfor %}
+
   
 
 

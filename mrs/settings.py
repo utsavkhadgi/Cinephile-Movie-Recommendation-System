@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,7 +50,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -112,11 +115,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -134,3 +137,31 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+CACHE_MIDDLEWARE_SECONDS = 60
+
+#DB Cache
+# CACHES = {
+#    'default': {
+#       'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#       'LOCATION': 'mrs_cache',
+#    }
+# }
+
+
+#File Cache
+# CACHES = {
+#    'default': {
+#       'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#       'LOCATION': 'E:\Work\python\mrsproject\cache',
+#    }
+# }
+
+#Cache in Memory
+# CACHES = {
+#    'default': {
+#       'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#       'LOCATION': '127.0.0.1:11211',
+#    }
+# }
