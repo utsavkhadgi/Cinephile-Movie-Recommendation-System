@@ -89,7 +89,12 @@
                    <!-- Search Bar -->
                    <form class="d-flex" action="{% url 'searchData:index'%}" method="POST">
                      {% csrf_token %}
-                    <input class="form-control me-2 search" type="search" placeholder="Search Movie..." aria-label="Search" name="searched">
+                    <input list="movies" class="form-control me-2 search" type="search" placeholder="Search Movie..." aria-label="Search" name="searched">
+                    <datalist id="movies">
+                          {% for movie,poster in result %}
+                              <option value="{{movie.title}}">
+                          {% endfor %}	
+                    </datalist>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
                   

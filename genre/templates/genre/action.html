@@ -15,7 +15,7 @@
   
 <h1>Action Genre</h1>
   <div class="row main-row">
-    {% for movie in movies %}   
+    {% for movie in movies|slice:"1:7" %}   
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
           <div class="image">
             <img src="{{movie.poster.url}}" alt="">
@@ -29,7 +29,7 @@
   </div>
 
   <div class="row main-row">
-    {% for movie in movies %}   
+    {% for movie in movies|slice:"8:14" %}   
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
           <div class="image">
             <img src="{{movie.poster.url}}" alt="">
@@ -43,7 +43,7 @@
   </div>
 
 <div class="row main-row">
-    {% for movie in movies %}   
+  {% for movie in movies|slice:"15:19" %}
     <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
         <div class="image">
           <img src="{{movie.poster.url}}" alt="">
