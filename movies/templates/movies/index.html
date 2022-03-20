@@ -40,18 +40,14 @@
 		
 			<div class="movitem slider">
 				{% for movie,poster in result|slice:":6" %}
+				<a href="{% url 'movies:details' movie.id %}">
 				<div class="card" style="width: 18rem;">
 					<img src="{{poster}}" class="card-img-top" alt="...">
 					<div class="card-body">
 					<h5 class="card-title">{{movie.title}}</h5>
-					  <!-- <h6 style="text-align: center;">{{movie.title}}</h6> -->
-					  <!-- <i class="fas fa-star" style="color: black;"></i>
-					  <span>{{movie.rating}}</span> -->
-					  <!-- <h6>IMDB:{{movie.rating}}</h6> -->
-					  <!-- <p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:recommendation' movie.title %}" style="text-decoration: none;">...See More</a></p>
-					<div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
 					</div>
 				  </div>
+				</a>
 				  {% endfor %}				  
 			</div>	  
 
@@ -61,30 +57,30 @@
 				 
 			<!------------------------------------------------Top Rated Series-------------------------------------------->
 			<div class="popularcontainer" id="popularmovies">
-				<h1>Top Rated Series</h1>
+				<h1>Top Rated Movies</h1>
 		
 				
 					<div class="movitem slider">
-						{% for movie,poster in result|slice:"19:26"%}
-						<div class="card" style="width: 18rem;">
-							<img src="{{poster}}" class="card-img-top" alt="...">
-							<div class="card-body">
-							<h5 class="card-title">{{movie.title}}</h5>
-							  <!-- <h6 style="text-align: center;">{{movie.title}}</h6> -->
-							  <!-- <i class="fas fa-star" style="color: black;"></i>
-							  <span>{{movie.rating}}</span> -->
-							  <!-- <h6>IMDB:{{movie.rating}}</h6> -->
-							  <!-- <p class="card-text">{{movie.description| truncatechars:50}}<a href="{% url 'movies:recommendation' movie.title %}" style="text-decoration: none;">...See More</a></p>
-							<div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
-							</div>
-						  </div>
-						  {% endfor %}				  
+						{% for movie,poster in result %}
+							{% if movie.rating > 7 %}
+								<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">
+									<div class="card" style="width: 18rem;">
+										<img src="{{poster}}" class="card-img-top" alt="...">
+										<div class="card-body">
+											<div class="social-icon">
+												<i class="fas fa-star"></i>
+											<span>{{movie.rating}}</span>
+											</div>
+											<h5 class="card-title">{{movie.title}}</h5>
+										</div>
+									</div>
+								</a>
+							{% endif %}
+						{% endfor %}				  
 					</div>	  
 		
 		</div>
-		
-
-
+	
 		
 			
 {% endblock%}

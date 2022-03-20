@@ -15,10 +15,10 @@
   
 <h1>Action Genre</h1>
   <div class="row main-row">
-    {% for movie in movies|slice:"1:7" %}   
+    {% for movie,poster in result|slice:":6" %}   
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
           <div class="image">
-            <img src="{{movie.poster.url}}" alt="">
+            <img src="{{poster}}" alt="">
           </div>
           <div class="link">
               <a href="#" id="title">{{movie.title}}(action)</a>
@@ -29,31 +29,47 @@
   </div>
 
   <div class="row main-row">
-    {% for movie in movies|slice:"8:14" %}   
+    {% for movie,poster in result|slice:"7:13" %}   
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
           <div class="image">
-            <img src="{{movie.poster.url}}" alt="">
+            <img src="{{poster}}" alt="">
           </div>
           <div class="link">
-              <a href="#" id="title">{{movie.title}}</a>
+              <a href="#" id="title">{{movie.title}}(action)</a>
           </div>
       </div>
       
       {% endfor %}
   </div>
 
-<div class="row main-row">
-  {% for movie in movies|slice:"15:19" %}
-    <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
-        <div class="image">
-          <img src="{{movie.poster.url}}" alt="">
-        </div>
-        <div class="link">
-            <a href="#" id="title">{{movie.title}}</a>
-        </div>
-    </div>
-    {% endfor %}
-</div>
+  <div class="row main-row">
+    {% for movie,poster in result|slice:"14:20" %}   
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
+          <div class="image">
+            <img src="{{poster}}" alt="">
+          </div>
+          <div class="link">
+              <a href="#" id="title">{{movie.title}}(action)</a>
+          </div>
+      </div>
+      
+      {% endfor %}
+  </div>
+
+  <div class="row main-row">
+    {% for movie,poster in result|slice:"21:27" %}   
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 main-col">
+          <div class="image">
+            <img src="{{poster}}" alt="">
+          </div>
+          <div class="link">
+              <a href="#" id="title">{{movie.title}}(action)</a>
+          </div>
+      </div>
+      
+      {% endfor %}
+  </div>
+
 
   <div class="page-links">
     <nav aria-label="...">

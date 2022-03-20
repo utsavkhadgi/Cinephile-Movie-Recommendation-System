@@ -15,8 +15,8 @@
             <div class="col-3">
                 <h4>IMDb Rating</h4>
                 <div class="social-icon"   >
-                <i class="fas fa-star"></i>
-               <span>{{searchedmovie.rating}}</span>
+                    <i class="fas fa-star"></i>
+                <span>{{searchedmovie.rating}}</span>
                  </div>
                 
             </div>
@@ -70,14 +70,14 @@
         <h2>| Top Cast</h2>
         <div class="row">
             <div class="col-1">
-                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+                <img src="{% static 'searchData/img/test.png'%}" alt="">
             </div>
             <div class="col-5">
                 <a href="#">Jitendra Kumar</a>
                     <p>as Abhishek Tripathi (Gram Sachiv)</p>
             </div>
             <div class="col-1">
-                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+                <img src="{% static 'searchData/img/test.png'%}" alt="">
             </div>
             <div class="col-5">
                 <a href="#">Jitendra Kumar</a>
@@ -87,14 +87,14 @@
 
           <div class="row">
             <div class="col-1">
-                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+                <img src="{% static 'searchData/img/test.png'%}" alt="">
             </div>
             <div class="col-5">
                 <a href="#">Jitendra Kumar</a>
                     <p>as Abhishek Tripathi (Gram Sachiv)</p>
             </div>
             <div class="col-1">
-                <img src="{% static 'searchData/img/panchayat.jpg'%}" alt="">
+                <img src="{% static 'searchData/img/test.png'%}" alt="">
             </div>
             <div class="col-5">
                 <a href="#">Jitendra Kumar</a>
@@ -165,6 +165,7 @@
         <h2>| Recommended</h2>
         <div class="movitem slider">
             {% for i,j in data %}
+            <a href="% url 'searchData:test'i.id %">
             <div class="card" style="width: 18rem;">
                 <img src="{{j}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -177,6 +178,7 @@
                   <!-- <div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
                 </div>
               </div>
+            </a>
               {% endfor %}	      
         </div>
 

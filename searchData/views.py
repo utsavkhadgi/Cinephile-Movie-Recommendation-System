@@ -35,11 +35,6 @@ def index(request):
       context = {'movie':movie}
       return render(request,'movies/index.html',context)       
 
-        
-def details(request, id):
-    movie = Movie.objects.get(id=id)
-    context = {'movie':movie}
-    return render(request, 'movies/details.html',context)
 
 
 def fetch_poster(movie_id):
