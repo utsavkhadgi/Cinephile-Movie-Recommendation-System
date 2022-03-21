@@ -9,16 +9,16 @@
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
-			<img src="{% static 'movies/img/homepage images/lt.jpg'%}" class="d-block w-100" alt="...">
+			<img src="{% static 'movies/img/homepage images/c.png'%}" class="d-block w-100" alt="...">
 		  </div>
 		  <div class="carousel-item">
 			<img src="{% static 'movies/img/homepage images/2.jpg'%}" class="d-block w-100" alt="...">
 		  </div>
 		  <div class="carousel-item">
-			<img src="{% static 'movies/img/homepage images/jaibhim.jpg'%}" class="d-block w-100" alt="...">
+			<img src="{% static 'movies/img/homepage images/CinePhile (1).png'%}" class="d-block w-100" alt="...">
 		  </div>
 		  <div class="carousel-item">
-			<img src="{% static 'movies/img/homepage images/manjili1.jpg'%}" class="d-block w-100" alt="...">
+			<img src="{% static 'movies/img/homepage images/CinePhile.png'%}" class="d-block w-100" alt="...">
 		  </div>
 		</div>
 		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -40,7 +40,7 @@
 		
 			<div class="movitem slider">
 				{% for movie,poster in result|slice:":6" %}
-				<a href="{% url 'movies:details' movie.id %}">
+				<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">
 				<div class="card" style="width: 18rem;">
 					<img src="{{poster}}" class="card-img-top" alt="...">
 					<div class="card-body">
@@ -55,28 +55,29 @@
 
 			<hr style="margin:0;">
 				 
-			<!------------------------------------------------Top Rated Series-------------------------------------------->
-			<div class="popularcontainer" id="popularmovies">
+			<!------------------------------------------------Top Rated Movies-------------------------------------------->
+			<div class="popularcontainer" id="#topratedmovies">
 				<h1>Top Rated Movies</h1>
 		
 				
 					<div class="movitem slider">
-						{% for movie,poster in result %}
-							{% if movie.rating > 7 %}
-								<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">
-									<div class="card" style="width: 18rem;">
-										<img src="{{poster}}" class="card-img-top" alt="...">
-										<div class="card-body">
-											<div class="social-icon">
-												<i class="fas fa-star"></i>
-											<span>{{movie.rating}}</span>
+						{% for movie,poster in result %}		
+							{% if movie.rating > 7 %}					
+								<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;"> 
+										<div class="card" style="width: 18rem;">
+											<img src="{{poster}}" class="card-img-top" alt="...">
+											<div class="card-body">
+												<div class="social-icon">
+													<i class="fas fa-star"></i>
+												<span>{{movie.rating}}</span>
+												</div>
+												<h5 class="card-title">{{movie.title}}</h5>
 											</div>
-											<h5 class="card-title">{{movie.title}}</h5>
 										</div>
-									</div>
 								</a>
 							{% endif %}
-						{% endfor %}				  
+						{% endfor %}	
+									  
 					</div>	  
 		
 		</div>

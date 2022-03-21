@@ -61,10 +61,10 @@
                       <a class="nav-link" aria-current="page" href="{% url 'questions:index'%}">Suggest a Movie</a>
                     </li> -->
                     <li class="nav-item">
-                      <a class="nav-link" href="#popularmovies">Top Rated movie</a>
+                      <a class="nav-link" href="#popularmovies">Popular Movies</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#topratedseries">Top Rated Series</a>
+                      <a class="nav-link" href="#topratedmovies">Top Rated Movies</a>
                     </li>
       
                     <!-- Dropdown Menu -->
@@ -87,7 +87,7 @@
                   </ul>
       
                    <!-- Search Bar -->
-                   <form class="d-flex" action="{% url 'searchData:index'%}" method="POST">
+                   <form class="d-flex" action="{% url 'movies:search'%}" method="POST">
                      {% csrf_token %}
                     <input list="movies" class="form-control me-2 search" type="search" placeholder="Search Movie..." aria-label="Search" name="searched" style="width: 150%;">
                     <datalist id="movies">

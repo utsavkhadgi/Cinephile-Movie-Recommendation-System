@@ -26,15 +26,41 @@ def index(request):
     context = {'result':result}
     return render(request,'movies/index.html',context)
 
+def search(request):
+    movies = Movie.objects.all()
+    poster = []
+    for i in movies:
+        poster.append(fetch_poster(i.id))
+    result = list(zip(movies,poster))
+    if request.method == "POST":
+      searched = request.POST['searched']  
+      searchedmovie = Movie.objects.get(title=searched)
+      postersearch = fetch_poster(searchedmovie.id)
+      trailersearch = fetch_trailer(searchedmovie.id)
+      data = recommendation(searchedmovie.title)
+      context = {
+        'movies':movies,
+        'result':result,
+        'searched':searched,
+        'searchedmovie':searchedmovie,
+        'postersearch':postersearch,
+        'trailersearch':trailersearch,
+        'data':data
+        }
+      return render(request,'movies/details.html',context)
+    else:
+      movie = Movie.objects.get(id=id)
+      context = {'movie':movie}
+      return render(request,'movies/index.html',context)       
+
+
 
 def details(request, id):
     movies = Movie.objects.all()
     poster = []
     for i in movies:
         poster.append(fetch_poster(i.id))
-    result = list(zip(movies,poster))
-    # if request.method == "POST":
-    #   searched = request.POST['searched']  
+    result = list(zip(movies,poster)) 
     searchedmovie =  Movie.objects.get(id=id)
     postersearch = fetch_poster(searchedmovie.id)
     trailersearch = fetch_trailer(searchedmovie.id)
@@ -48,11 +74,9 @@ def details(request, id):
      'trailersearch':trailersearch,
      'data':data
      }
-    return render(request,'searchData/index.html',context)
-    # else:
-    #   movie = Movie.objects.get(id=id)
-    #   context = {'movie':movie}
-    #   return render(request,'movies/index.html',context)     
+    return render(request,'movies/details.html',context)    
+
+
 
 #Recommendated Movies    
 # movies_dict = pickle.load(open('movie_list.pkl','rb'))
@@ -97,15 +121,17 @@ def recommendation(title):
     similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
     
     res = []
-    # ress = []
+    resid = []
     recommended_movie_posters = []
     for i in similarity_score[1:6]:
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
         res.append(movies.iloc[i[0]].title)
+        resid.append(movie_id)
+        # print(movie_id)
         # ress.append(movies.iloc[i[0]].movie_id)
-  
-    result = zip(res,recommended_movie_posters)
+    
+    result = zip(res,recommended_movie_posters,resid)
     # data = {
     #     # 'res':res,
     #     'result':result,
@@ -114,33 +140,8 @@ def recommendation(title):
     # }  
     return result
 
-# def recommendation(request, title):
-#     movie = Movie.objects.get(title=title)
-#     context = {'movie':movie} 
-
-#     index=movies[movies['title']== title].index[0]
-#     similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
-    
-#     res = []
-#     # ress = []
-#     recommended_movie_posters = []
-#     for i in similarity_score[1:6]:
-#         movie_id = movies.iloc[i[0]].movie_id
-#         recommended_movie_posters.append(fetch_poster(movie_id))
-#         res.append(movies.iloc[i[0]].title)
-#         # ress.append(movies.iloc[i[0]].movie_id)
-  
-#     result = zip(res,recommended_movie_posters)
 
 
-#     data = {
-#         # 'res':res,
-#         'result':result,
-#         # 'recommended_movie_posters':recommended_movie_posters,
-#         'movie':movie,
-#     }  
-   
-#     return render(request, 'movies/recommendation.html',data)
 
 
 

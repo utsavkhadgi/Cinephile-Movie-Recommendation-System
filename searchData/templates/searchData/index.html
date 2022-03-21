@@ -148,14 +148,6 @@
         </div>
         <hr>
 
-        <div class="col-6">
-            <p class="detail-title"><span>Writer </span> 
-        </div>
-    
-        <div class="col-6">
-                Chandan Kumar</p>
-        </div>
-        <hr>
 
     </div>
 
@@ -165,7 +157,6 @@
         <h2>| Recommended</h2>
         <div class="movitem slider">
             {% for i,j in data %}
-            <a href="% url 'searchData:test'i.id %">
             <div class="card" style="width: 18rem;">
                 <img src="{{j}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -178,7 +169,6 @@
                   <!-- <div class="button-wrapper">  <a href="#" class="btn btn-primary">Watch Trailer</a></div> -->
                 </div>
               </div>
-            </a>
               {% endfor %}	      
         </div>
 

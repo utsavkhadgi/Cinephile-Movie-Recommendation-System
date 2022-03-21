@@ -71,12 +71,13 @@ def recommendation(title):
     similarity_score=sorted(list(enumerate(similarity[index])),reverse=True,key=lambda x : x[1])
     
     res = []
-    # ress = []
+    # resid = []
     recommended_movie_posters = []
     for i in similarity_score[1:6]:
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
         res.append(movies.iloc[i[0]].title)
+        # resid.append(movies.iloc[i[0]].movie_id,resid)
         # ress.append(movies.iloc[i[0]].movie_id)
   
     result = zip(res,recommended_movie_posters)
