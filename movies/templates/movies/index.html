@@ -9,13 +9,10 @@
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
-			<img src="{% static 'movies/img/homepage images/c.png'%}" class="d-block w-100" alt="...">
+			<img src="{% static 'movies/img/homepage images/CinePhile (1).png'%}" class="d-block w-100" alt="...">
 		  </div>
 		  <div class="carousel-item">
 			<img src="{% static 'movies/img/homepage images/2.jpg'%}" class="d-block w-100" alt="...">
-		  </div>
-		  <div class="carousel-item">
-			<img src="{% static 'movies/img/homepage images/CinePhile (1).png'%}" class="d-block w-100" alt="...">
 		  </div>
 		  <div class="carousel-item">
 			<img src="{% static 'movies/img/homepage images/CinePhile.png'%}" class="d-block w-100" alt="...">
@@ -32,19 +29,23 @@
 	  </div>
 
 
-	<!------------------------------------------------Popular Movies-------------------------------------------->
+	<!------------------------------------------------Featured Movies-------------------------------------------->
 	
 	<div class="popularcontainer" id="popularmovies">
-		<h1>Popular Movies</h1>
+		<h1>Featured Movies</h1>
 
 		
 			<div class="movitem slider">
-				{% for movie,poster in result|slice:":6" %}
+				{% for movie,poster in result|slice:"40:48" %}
 				<a href="{% url 'movies:details' movie.id %}" style="text-decoration: none;">
 				<div class="card" style="width: 18rem;">
 					<img src="{{poster}}" class="card-img-top" alt="...">
 					<div class="card-body">
-					<h5 class="card-title">{{movie.title}}</h5>
+						<div class="social-icon">
+							<i class="fas fa-star"></i>
+						<span>{{movie.rating}}</span>
+						</div>
+						<h5 class="card-title">{{movie.title}}</h5>
 					</div>
 				  </div>
 				</a>
