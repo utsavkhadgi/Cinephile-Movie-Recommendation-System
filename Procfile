@@ -1,0 +1,1 @@
+web: gunicorn mrsproject.wsgi
