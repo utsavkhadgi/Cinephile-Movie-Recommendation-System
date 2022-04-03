@@ -1,1 +1,1 @@
-web: gunicorn mrsproject.wsgi
+web: gunicorn mrs.wsgi --log-file -
